@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PhotosDisplay from "../components/PhotosDisplay";
+
+import "../style/pages/Product.css"
 
 export default function Product () {
 
     const { productId } = useParams();
     const [state, setState] = useState({
         product: {},
+        photos: [],
         designs: [],
         personnalize: false,
         size: null,
@@ -17,7 +21,9 @@ export default function Product () {
         .then(response => response.json())
         .then(jsonResponse => setState({
             product: jsonResponse.product,
+            photos: jsonResponse.product.photos,
             designs: jsonResponse.designs,
+            personnalize: false,
             size: jsonResponse.product.stocks[0].size.label,
             customsLength: 1,
         }))
@@ -90,16 +96,16 @@ export default function Product () {
         )
     }
 
-    return (
-        <div>
-            <div className="product-photos">
-            </div>
+    return ( 
+        <div className="product">
+            <PhotosDisplay photos={state.photos}/>
             <div className="product-informations">
                 <label>{state.product.name}</label>
                 <label>{state.product.description}</label>
                 <label>{state.product.price}€</label>
+                {state.product.available ? displayShoppingForm() : <label> PRODUIT EN RUPTURE DE STOCK </label>}
             </div>
-            {state.product.available ? displayShoppingForm() : <label> PRODUIT EN RUPTURE DE STOCK </label>}
+            
         </div>
     )
 }

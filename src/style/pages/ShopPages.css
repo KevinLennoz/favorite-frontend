@@ -4,6 +4,8 @@
 .products-header {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 20px 5px 20px 5px;
     background-color: #254B59;
     margin-bottom: 30px;
@@ -11,5 +13,11 @@
   
   .categorie-name {
     color: white;
+  }
+
+  .active {
+    color: #254B59;
+    background-color: #B4CBD9;
+    padding: 5px;
   }
   

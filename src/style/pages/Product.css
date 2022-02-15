@@ -1,0 +1,29 @@
+.product {
+    display: flex;
+    padding: 20px;
+}
+
+.product-photos{
+    display: flex;
+}
+.photos-preview{
+    display: flex;
+    flex-direction: column;
+}
+.preview {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 5px;
+    background-color: #254B59;
+}
+
+#large-photo {
+    height: 400px;
+    width: 400px;
+    background-color: #254B59;
+    margin: 0 10px 0 10px;
+}
+
+.product-informations {
+    padding: 0 20px 0 20px;
+}
