@@ -3,6 +3,8 @@ import { Link, Routes, Route } from "react-router-dom";
 import ProductsCaroussel from "./ProductsCaroussel";
 import Product from "./Product";
 
+import "../style/ShopPages.css"
+
 export default function ShopPages() {
 
     const [categories, setCategories] = useState([]);
@@ -16,11 +18,11 @@ export default function ShopPages() {
     return (
         <div className="products">
             <div className="products-header">
-                <Link to="all"> Tous les produits </Link>
-                {categories ? categories.map(cat => <Link key={cat.name} to={`${cat.name.toLowerCase()}`}> {cat.name}</Link>) : <label> No categories </label>}
+                <Link to="all" className="categorie-name"> Tous les produits </Link>
+                {categories ? categories.map(cat => <Link className="categorie-name" key={cat.name} to={`${cat.name.toLowerCase()}`}> {cat.name}</Link>) : <label> No categories </label>}
             </div>
             <Routes>
-                <Route path="all" element={<ProductsCaroussel/>}></Route>
+                <Route path="all" element={<ProductsCaroussel/>}/>
                 <Route path=":categorie" element={<ProductsCaroussel />}/>
                 <Route path=":categrorie/:productId" element={<Product/>} />
             </Routes>

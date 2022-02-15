@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductPreview from "../components/ProductPreview"
 
+import "../style/ProductsCaroussel.css"
+
 export default function ProductsCaroussel() {
 
-    const { categorie} = useParams()
+    const { categorie } = useParams()
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -21,9 +23,11 @@ export default function ProductsCaroussel() {
         )}, [categorie])
 
     return (
+        <div className="caroussel">
         <div className="products-display">
-            {products.length > 0 ? products.map(product => <ProductPreview product={product}/>) 
-            : <label id="no-cloth"> Pas d'article pour le moment  </label>}
+            {products.length > 0 && products.map(product => <ProductPreview product={product}/>)}
+        </div>
+        {products.length <=0 && <label id="no-cloth"> Pas d'article pour le moment  </label>}
         </div>
     )
 }
