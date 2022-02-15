@@ -3,7 +3,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import ProductsCaroussel from "./ProductsCaroussel";
 import Product from "./Product";
 
-import "../style/ShopPages.css"
+import "../style/pages/ShopPages.css"
 
 export default function ShopPages() {
 

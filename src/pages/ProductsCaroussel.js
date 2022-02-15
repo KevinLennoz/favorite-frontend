@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductPreview from "../components/ProductPreview"
 
-import "../style/ProductsCaroussel.css"
+import "../style/pages/ProductsCaroussel.css"
 
 export default function ProductsCaroussel() {
 

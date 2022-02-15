@@ -1,0 +1,13 @@
+.product {
+    border: 1px solid black;
+    margin: 0px 20px 0px 20px;
+    color: black;
+}
+
+#no-stock{
+    position: relative;
+    left: -150px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}

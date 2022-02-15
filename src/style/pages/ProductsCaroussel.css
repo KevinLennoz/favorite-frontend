@@ -7,9 +7,4 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-  
-.product {
-    border: 1px solid black;
-    margin: 0px 20px 0px 20px;
-    color: black;
-}
+
