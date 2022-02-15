@@ -1,5 +1,7 @@
 .footer {
     height: 50px;
-    background-color: blue;
+    background-color: #B4CBD9;
+	  text-align: center;
+	  color: white;
     margin-top: 30px;
   }

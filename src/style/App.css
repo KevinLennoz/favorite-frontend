@@ -9,6 +9,10 @@ a {
   text-decoration: none;
 }
 
+.App {
+	background-color: #F2F2F2
+}
+
 .product-informations{
   display: flex;
   flex-direction: column;

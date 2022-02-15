@@ -1,5 +1,11 @@
 .header {
     height: 50px;
-    background-color: red;
+    background-color: #F2F2F2;
     text-align: center;
+  }
+
+  #app-name {
+    color: #254B59;
+    font-weight: bold;
+    font-size: large;
   }
