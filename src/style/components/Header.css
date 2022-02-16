@@ -11,3 +11,22 @@
     font-weight: bold;
     font-size: 30px;
   }
+
+  .cart-header {
+    display: flex;
+  }
+
+  .cart-length-icon {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: #254B59;
+    text-align: center;
+  }
+
+  #cart-length {
+    color: #F2F2F2;
+  }

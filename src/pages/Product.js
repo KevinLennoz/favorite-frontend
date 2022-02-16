@@ -4,7 +4,7 @@ import PhotosDisplay from "../components/PhotosDisplay";
 
 import "../style/pages/Product.css"
 
-export default function Product () {
+export default function Product (props) {
 
     const { productId } = useParams();
     const [state, setState] = useState({
@@ -57,8 +57,16 @@ export default function Product () {
 
     const displayShoppingForm = () => {
 
+        const handleButtonAddCart = (e) => {
+            e.preventDefault();
+            const size = document.querySelector('#size-select').value
+            const quantity = parseInt(document.querySelector('#quantity-select').value)
+            const price = state.product.price
+            props.addToCart(state.product, size, quantity, price)
+        }
+
         const changeSize = () => {
-            if(document.querySelector('#quantity-select')) document.querySelector('#quantity-select').value = 1;
+            document.querySelector('#quantity-select').value = 1
             const sizeValue = document.querySelector('#size-select').value;
             setState({...state, size: sizeValue});
         }
@@ -89,9 +97,9 @@ export default function Product () {
                     ))}
                 </select>
                 {state.size != null &&  getQuantity(state.product.stocks.find(stock => stock.size.label === state.size))}
-                {state.personnalize && displayPersonnalizeForm()}
+                {state.personnalize && displayPersonnalizeForm}
                 <button onClick={() => personnalize()}> {state.personnalize ? 'Annuler la personnalisation' : 'Personnaliser'} </button>
-                <button> Ajouter au panier </button>
+                <button onClick={handleButtonAddCart}> Ajouter au panier </button>
             </div>
         )
     }

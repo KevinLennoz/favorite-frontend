@@ -5,7 +5,7 @@ import Product from "./Product";
 
 import "../style/pages/ShopPages.css"
 
-export default function ShopPages() {
+export default function ShopPages(props) {
 
     const [activeCategorie, setActiveCategorie] = useState('all')
     const [categories, setCategories] = useState([]);
@@ -32,7 +32,7 @@ export default function ShopPages() {
             <Routes>
                 <Route path="all" element={<ProductsCaroussel />}/>
                 <Route path=":categorie" element={<ProductsCaroussel />}/>
-                <Route path=":categrorie/:productId" element={<Product/>} />
+                <Route path=":categrorie/:productId" element={<Product addToCart={props.addToCart}/>} />
             </Routes>
         </div>
     )
