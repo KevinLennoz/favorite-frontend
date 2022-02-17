@@ -2,6 +2,7 @@ import React from "react";
 
 export function CartLine({ orderLine}) {
 
+    console.log(orderLine)
     return (
         <div>
             <div className="cartLine-product">
@@ -11,6 +12,7 @@ export function CartLine({ orderLine}) {
                 <label>x{orderLine.quantity}</label>
                 <label>{orderLine.price} €</label>
             </div>
+            {orderLine.customs.length > 0  && orderLine.customs.map(custom => <label>{custom.design.name}</label>)}
         </div>
     )
 }

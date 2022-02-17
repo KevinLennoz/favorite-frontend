@@ -9,7 +9,7 @@ export default function Header( {cart, user}) {
     return (
             <div className="header">
                 <label> Bonjour {user.surname} </label>
-                <Link to="/products/all" id="app-name">FAVORI(TE)</Link>
+                <Link to="/" id="app-name">FAVORI(TE)</Link>
                 <Link to="/cart">
                 <div className="cart-header">
                     <img src={"/resources/cart.svg"} alt="cart-icon"/>

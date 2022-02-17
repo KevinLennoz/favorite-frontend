@@ -29,16 +29,33 @@ export default function Product (props) {
         }))
     }, [productId])
 
+    const handleButtonAddCart = (e) => {
+        e.preventDefault();
+        const size = document.querySelector('#size-select').value
+        const quantity = parseInt(document.querySelector('#quantity-select').value)
+        const price = state.product.price
+        let customs = []
+        for (let i=0; i<state.customsLength; i++) {
+            const customDesign = state.designs.find(design => design.name === document.querySelector(`#design-select-${i}`).value)
+            const customLocation = document.querySelector(`#location-select-${i}`).value
+            customs.push({
+                design: customDesign,
+                location: customLocation
+            })
+        }
+        props.addToCart(state.product, size, quantity, price, customs)
+    }
+
     const displayPersonnalizeForm = () => {
 
         const displayForm = () => {
             let form = Array(state.customsLength).fill(0)
-            return form.map(() => (
+            return form.map((e, i) => (
             <div>
-                <select name="design" id="design-select">
+                <select name="design" id={`design-select-${i}`}>
                     {state.designs.map(design => <option value={design.name}>{design.name}</option>)}
                 </select>
-                <select name="location" id="location-select">
+                <select name="location" id={`location-select-${i}`}>
                     {state.product.productType.locations.map(location => <option value={location.label}>{location.label}</option>)}
                 </select>
             </div>))
@@ -56,14 +73,6 @@ export default function Product (props) {
     }
 
     const displayShoppingForm = () => {
-
-        const handleButtonAddCart = (e) => {
-            e.preventDefault();
-            const size = document.querySelector('#size-select').value
-            const quantity = parseInt(document.querySelector('#quantity-select').value)
-            const price = state.product.price
-            props.addToCart(state.product, size, quantity, price)
-        }
 
         const changeSize = () => {
             document.querySelector('#quantity-select').value = 1
@@ -97,7 +106,7 @@ export default function Product (props) {
                     ))}
                 </select>
                 {state.size != null &&  getQuantity(state.product.stocks.find(stock => stock.size.label === state.size))}
-                {state.personnalize && displayPersonnalizeForm}
+                {state.personnalize && displayPersonnalizeForm()}
                 <button onClick={() => personnalize()}> {state.personnalize ? 'Annuler la personnalisation' : 'Personnaliser'} </button>
                 <button onClick={handleButtonAddCart}> Ajouter au panier </button>
             </div>

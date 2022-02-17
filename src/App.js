@@ -31,7 +31,7 @@ function App() {
     }))
   }, [])
 
-  const addOrderLineToCart = (product, size, quantity, price) => {
+  const addOrderLineToCart = (product, size, quantity, price, customs) => {
     let newOrderLines = state.cart.orderLines;
     newOrderLines.push({
       product: product,
@@ -39,8 +39,9 @@ function App() {
       quantity: quantity,
       price: price,
       //totalPrice: totalPrice,
-      //customs: customs
+      customs: customs
     })
+    console.log(newOrderLines)
     return setState({
       ...state,
       cart: {
